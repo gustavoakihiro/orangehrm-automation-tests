@@ -11,8 +11,6 @@ const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
 const menuPage = new MenuPage()
 const submitClaimPage = new SubmitClaimPage()
-const buzzPage = new BuzzPage()
-const myInfoPage = new MyInfoPage()
 
 describe('Orange HRM Tests', () => {
 
