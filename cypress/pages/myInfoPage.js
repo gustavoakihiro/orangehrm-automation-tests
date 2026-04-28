@@ -6,10 +6,11 @@ class MyInfoPage {
             middleNameField: "[name='middleName']",
             lastNameField: "[name='lastName']",
             genericField: ".oxd-input",
-            dateField: "[placeholder='yyyy-dd-mm']",
+            dateField: ".oxd-date-input",
             dateCloseButton: ".--close",
             submitButton: "[type='submit']",
-            genericDropDown: ".oxd-select-text-input"
+            genericDropDown: ".oxd-select-text-input",
+            genericOptionsDropDown: ".oxd-select-option"
             
         }
 
@@ -32,9 +33,9 @@ class MyInfoPage {
         cy.get(this.selectorsList().dateField).eq(1).clear().type(birthDate)
         cy.get(this.selectorsList().dateCloseButton).click()
         cy.get(this.selectorsList().genericDropDown).eq(0).click()
-        cy.get(':nth-child(4) > span').click()
+        cy.get(this.selectorsList().genericOptionsDropDown).eq(26).click()
         cy.get(this.selectorsList().genericDropDown).eq(1).click()
-        cy.get(':nth-child(4) > span').click()
+        cy.get(this.selectorsList().genericOptionsDropDown).eq(1).click()
     }
 
     checkSubmit() {

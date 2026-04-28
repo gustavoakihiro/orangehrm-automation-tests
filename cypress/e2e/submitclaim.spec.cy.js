@@ -5,30 +5,28 @@ import DashboardPage from '../pages/dashboardPage'
 import MenuPage from '../pages/menuPage'
 import MyInfoPage from '../pages/myInfoPage'
 import BuzzPage from '../pages/buzzPage' 
+import SubmitClaimPage from '../pages/submitClaimPage'
 
-const Chance = require('chance')
-
-const chance = new Chance()
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
 const menuPage = new MenuPage()
-const myInfoPage = new MyInfoPage()
+const submitClaimPage = new SubmitClaimPage()
 const buzzPage = new BuzzPage()
+const myInfoPage = new MyInfoPage()
 
 describe('Orange HRM Tests', () => {
 
-  it('User Info Update - Success', () => {
+  it('User Submit Claim - Success', () => {
 
     loginPage.accessLoginPage()
     loginPage.loginWithAnyUser(userData.userSuccess.username, userData.userSuccess.password)
     
     dashboardPage.dashboardCheck()
     
-    menuPage.accessMyinfo()
+    menuPage.accessClaim()
     
-    myInfoPage.fillPerosnalDetails(chance.first(), chance.last(), chance.string())
-    myInfoPage.fillEmployeeDetails(chance.integer({ min: 1000000, max: 9999999 }), chance.integer({ min: 1000000, max: 9999999 }), chance.integer({ min: 1000000, max: 9999999 }), '2025-01-13','1996-06-20')
-    myInfoPage.checkSubmit()
+    submitClaimPage.fillClaimDetails()
+    submitClaimPage.claimPostCheck()
 
   })
 
